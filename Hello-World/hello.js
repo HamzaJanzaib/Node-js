@@ -1,4 +1,4 @@
-console.log("Hello World");
+// console.log("Hello World");
 
 // window is not defined in node.js
 // creating node js for server side programming
@@ -8,3 +8,4 @@ console.log("Hello World");
 // etc
 
 // npm init -y create package.json file 
+
