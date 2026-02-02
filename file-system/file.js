@@ -38,4 +38,33 @@ const fs = require("fs");
 
 // fs.copyFileSync("contact.txt", "copy.txt");
 
-fs.unlinkSync("hello.txt");
+// fs.unlinkSync("hello.txt");
+
+// console.log(fs.statSync("contact.txt"));
+
+// const Stats = {
+//   dev: 175125993,
+//   mode: 33206,
+//   nlink: 1,
+//   uid: 0,
+//   gid: 0,
+//   rdev: 0,
+//   blksize: 4096,
+//   ino: 1125899908635026,
+//   size: 1089,
+//   blocks: 8,
+//   atimeMs: 1770068611079.7751,
+//   mtimeMs: 1770068460624.3933,
+//   ctimeMs: 1770068460624.3933,
+//   birthtimeMs: 1770067986101.9265
+// }
+
+// console.log(fs.statSync("contact.txt").isFile());
+
+// fs.mkdirSync("newFolder/test", { recursive: true });
+// fs.mkdirSync("newFolder/test2", { recursive: true });
+
+// fs.writeFileSync("newFolder/test.txt", "Learning Node.js file system");
+// fs.writeFileSync("newFolder/test2.txt", "Learning Node.js file system");
+
+// fs.copyFileSync("newFolder/test.txt", "newFolder/test2.txt");
