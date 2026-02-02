@@ -11,3 +11,6 @@ const math = require("./math");
 
 // use the math module add function
 console.log(math.add(1, 2));
+
+// use the math module sub function
+console.log(math.sub(1, 2));
