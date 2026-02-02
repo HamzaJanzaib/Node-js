@@ -7,10 +7,10 @@
 // console.log(sayHello());
 
 // require the math module
-const math = require("./math");
+const {add, sub} = require("./math");
 
 // use the math module add function
-console.log(math.add(1, 2));
+console.log(add(1, 2));
 
 // use the math module sub function
-console.log(math.sub(1, 2));
+console.log(sub(1, 2));
