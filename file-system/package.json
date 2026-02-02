@@ -1,10 +1,10 @@
 {
-  "name": "Hello-World",
+  "name": "file-system",
   "version": "1.0.0",
   "description": "",
-  "main": "hello.js",
+  "main": "file.js",
   "scripts": {
-    "start": "node hello.js"
+    "start": "node file.js"
   },
   "keywords": [],
   "author": "",
