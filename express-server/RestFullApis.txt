@@ -1,0 +1,6 @@
+-- Rules:
+----------- Server - Client ----------
+
+Rest Full Apis its 
+
+
