@@ -41,8 +41,8 @@ async function deleteUser(id) {
     console.log(`User with id ${id} deleted successfully`);
 }
 
-async function updateUser(id, name, email) {
-    const res = await query('UPDATE users SET name = $1, email = $2 WHERE id = $3 RETURNING *', [name, email, id]);
+async function updateUser(id, data ) {
+    const res = await query('UPDATE users SET name = $1, email = $2 WHERE id = $3 RETURNING *', [data.name, data.email, id]);
     return res.rows[0];
 }
 
