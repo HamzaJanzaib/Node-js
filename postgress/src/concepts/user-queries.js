@@ -12,8 +12,10 @@ async function createTables() {
     console.log('Tables created successfully');
 }
 
-async function getAllUsers() {
-    const res = await query('SELECT * FROM users');
+async function getAllUsers(page = 1, limit = 10) {
+    const offset = (page - 1) * limit;
+    
+    const res = await query('SELECT * FROM users LIMIT $1 OFFSET $2', [limit, offset]);
     return res.rows;
 }
 
