@@ -24,9 +24,16 @@ async function getUserById(id) {
     return res.rows[0];
 }
 
-async function createUser(name, email) {
-    const res = await query('INSERT INTO users (name, email) VALUES ($1, $2) RETURNING *', [name, email]);
-    return res.rows[0];
+async function createUser(data , multiple = false) {
+    if (multiple) {
+        const values = data.map(user => `('${user.name}', '${user.email}')`).join(', ');
+
+        const res = await query(`INSERT INTO users (name, email) VALUES ${values} RETURNING *`);
+        return res.rows;
+    } else {
+        const res = await query('INSERT INTO users (name, email) VALUES ($1, $2) RETURNING *', [data.name, data.email]);
+        return res.rows[0];
+    }
 }
 
 async function deleteUser(id) {
