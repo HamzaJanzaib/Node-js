@@ -16,7 +16,10 @@ async function initializeDatabase() {
 async function CreateUsers () {
     try {
         const user1 = await
-            createUser('John Doe', "john.doe@example.com");
+            createUser({
+                name: 'John Doe',
+                email: 'john.doe@example.com'
+            });
         console.log('User created successfully');
     } catch (error) {
         console.error('Error creating user', error);
