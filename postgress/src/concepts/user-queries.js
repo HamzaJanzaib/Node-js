@@ -12,10 +12,10 @@ async function createTables() {
     console.log('Tables created successfully');
 }
 
-async function getAllUsers(page = 1, limit = 10 , sortBy = 'created_at', sortOrder = 'DESC' , condition = '') {
+async function getAllUsers(page = 1, limit = 10 , sortBy = 'created_at', sortOrder = 'DESC' , condition = '', search = '') {
     const offset = (page - 1) * limit;
 
-    const res = await query(`SELECT * FROM users ${condition ? `WHERE ${condition}` : ''} ORDER BY ${sortBy} ${sortOrder} LIMIT $1 OFFSET $2`, [limit, offset]);
+    const res = await query(`SELECT * FROM users ${condition ? `WHERE ${condition}` : ''} ${search ? `AND (name ILIKE '%${search}%' OR email ILIKE '%${search}%')` : ''} ORDER BY ${sortBy} ${sortOrder} LIMIT $1 OFFSET $2`, [limit, offset]);
     return res.rows;
 }
 
