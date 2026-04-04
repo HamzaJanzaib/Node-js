@@ -6,11 +6,11 @@ async function getAllPostsRaw({ limit, offset, orderBy, orderDir, whereClause, w
     const limitPlaceholder = valueCount + 1;
     const offsetPlaceholder = valueCount + 2;
 
-    // INNER JOIN must come before WHERE, ORDER BY, LIMIT, OFFSET
+    // LEFT JOIN must come before WHERE, ORDER BY, LIMIT, OFFSET
     const sql = `
         SELECT posts.*, users.name as user_name, users.email as user_email 
-        FROM posts
-        INNER JOIN users ON posts.user_id = users.id
+        FROM users
+        LEFT JOIN posts ON posts.user_id = users.id
         ${wherePart}
         ORDER BY ${orderBy} ${orderDir}
         LIMIT $${limitPlaceholder} OFFSET $${offsetPlaceholder}
