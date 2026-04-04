@@ -2,11 +2,11 @@ version: '3.8'
 
 services:
   database:
-    image: postgres:18
+    image: postgres:16   
     container_name: postgres
     restart: always
     ports:
-      - "4466:4466"
+      - "5432:5432"
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: root
@@ -23,7 +23,7 @@ services:
     depends_on:
       - database
     environment:
-      DATABASE_URL: "postgresql://postgres:root@database:4466/postgres-prisma?schema=public"
+      DATABASE_URL: "postgresql://postgres:root@database:5432/postgres-prisma"
     volumes:
       - .:/usr/src/app
       - /usr/src/app/node_modules
