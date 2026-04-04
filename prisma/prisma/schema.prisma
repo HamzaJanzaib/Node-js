@@ -18,7 +18,15 @@ model User {
   email String  @unique
   name  String?
   posts Post[]
-} 
+}
+
+model Books {
+  id     Int    @id @default(autoincrement())
+  title  String
+  PublishDate DateTime
+  price Float
+}
+
 model Post { 
   id        Int     @id @default(autoincrement()) 
   title     String
