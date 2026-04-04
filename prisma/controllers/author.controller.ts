@@ -1,3 +1,4 @@
+import { log } from "console";
 import { createAuthor, deleteAuthor, getAuthorById, getAuthors, updateAuthor } from "../services/author.service";
 
 async function createAuthorController(req: any, res: any) {
@@ -14,7 +15,7 @@ async function createAuthorController(req: any, res: any) {
 
 async function getAuthorsController(req: any, res: any) {
     try {
-
+        log('Fetching authors...');
         const authors = await getAuthors();
         return authors;
     } catch (error) {
