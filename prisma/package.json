@@ -7,10 +7,10 @@
     "start": "tsx index.ts",
     "dev": "tsx watch index.ts",
     "build": "tsc",
-    "prisma:generate": "prisma generate",
-    "prisma:migrate": "prisma migrate dev",
-    "prisma:push": "prisma db push",
-    "prisma:studio": "prisma studio"
+    "prisma:g": "prisma generate",
+    "prisma:m": "prisma migrate dev",
+    "prisma:p": "prisma db push",
+    "prisma:s": "prisma studio"
   },
   "keywords": [],
   "author": "",

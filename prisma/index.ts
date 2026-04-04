@@ -7,15 +7,15 @@ const app: Application = express();
 
 
 app.get('/', (req: Request, res: Response) => {
-    prisma.user.findMany({
+    prisma.books.findMany({
         include: {
-            posts: true,
+            author: true,
         },
-    }).then(users => {
-        res.json(users);
+    }).then(books => {
+        res.json(books);
     }).catch(error => {
         console.error(error);
-        res.status(500).json({ error: 'An error occurred while fetching users' });
+        res.status(500).json({ error: 'An error occurred while fetching books' });
     });
 });
 
