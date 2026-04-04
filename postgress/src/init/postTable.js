@@ -1,11 +1,12 @@
 const { query } = require('../config/db');
 
-async function createTables() {
+async function PostTable() {
     await query(`
-        CREATE TABLE IF NOT EXISTS users (
+        CREATE TABLE IF NOT EXISTS posts (
             id SERIAL PRIMARY KEY,
-            name VARCHAR(100) NOT NULL,
-            email VARCHAR(100) UNIQUE NOT NULL,
+            title VARCHAR(200) NOT NULL,
+            content TEXT NOT NULL,
+            user_id INTEGER REFERENCES users(id) ON DELETE CASCADE, 
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         )
     `);
@@ -14,7 +15,7 @@ async function createTables() {
 
 // Execute only if this script is run directly
 if (require.main === module) {
-    createTables().catch(console.error);
+    PostTable().catch(console.error);
 }
 
-module.exports = { createTables };
+module.exports = { PostTable };

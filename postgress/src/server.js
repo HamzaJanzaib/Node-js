@@ -1,19 +1,10 @@
 const dotenv = require('dotenv');
 dotenv.config();
-
+const { initializeDatabase } = require('./init');
 // Import from modular services
-const { createTables } = require('./init/createTables');
 const { createUser, getAllUsers } = require('./services/userService');
 
-async function initializeDatabase() {
-    try {
-        await createTables();
-        console.log('✅ Database initialized successfully');
-    } catch (error) {
-        console.error('❌ Error initializing database', error);
-        process.exit(1);
-    }
-}
+
 
 async function createMultipleUsers() {
     const usersData = [
@@ -54,7 +45,7 @@ async function fetchAndDisplayUsers() {
 async function startServer() {
     try {
         await initializeDatabase();
-        await createMultipleUsers();
+        // await createMultipleUsers();
         await fetchAndDisplayUsers();
         console.log('\n🚀 Server is running and ready to accept requests');
     } catch (error) {
