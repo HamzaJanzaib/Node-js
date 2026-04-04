@@ -3,8 +3,17 @@ import { createBook, deleteBook, getBookById, getBooks, getBooksByAuthor, update
 
 async function createBookController(req: any, res: Response) {
     try {
-         const { title, PublishDate, price, authorId } = req.body;
-        const book = await createBook({ title, PublishDate: new Date(PublishDate), price, authorId });
+        const { title, price, authorId } = req.body;
+        
+        const priceValue = parseFloat(price);
+        if (isNaN(priceValue)) {
+            throw new Error('Invalid price provided');
+        }
+
+        // Set PublishDate to the current date and time
+        const NewPublishDate =  new Date();
+
+        const book = await createBook({ title, PublishDate: NewPublishDate, price: priceValue, authorId });
 
         res.json(book);
     } catch (error) {
@@ -72,4 +81,4 @@ async function deleteBookController(req: any, res: Response) {
     }
 }
 
-export { createBookController, getBooksController, getBookByIdController, updateBookController, deleteBookController , getBooksByAuthorController };
+export { createBookController, getBooksController, getBookByIdController, updateBookController, deleteBookController, getBooksByAuthorController };

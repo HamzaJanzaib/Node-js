@@ -29,5 +29,16 @@ services:
       - /usr/src/app/node_modules
     command: npm run dev
 
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    restart: always
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml  
+    command:  
+      - '--config.file=/etc/prometheus/prometheus.yml'
+
 volumes:
   postgres-data:

@@ -1,0 +1,7 @@
+global:
+  scrape_interval: 5s
+
+scrape_configs:
+  - job_name: 'postgres-prisma-app'
+    static_configs:
+      - targets: ['postgres-prisma-app:3000']
