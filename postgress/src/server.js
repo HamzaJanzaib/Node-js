@@ -52,17 +52,17 @@ async function createPostsForUsers(users) {
 }
 
 async function fetchAndDisplayData() {
-    console.log('\n📋 All users (first page, 10 per page):');
-    const allUsers = await getAllUsers(1, 10);
-    console.table(allUsers);
+    // console.log('\n📋 All users (first page, 10 per page):');
+    // const allUsers = await getAllUsers(1, 10);
+    // console.table(allUsers);
 
-    console.log('\n📝 All posts with user details (search for "PostgreSQL"):');
-    const postsWithSearch = await getAllPosts(1, 10, 'created_at', 'DESC', '', 'PostgreSQL');
-    console.table(postsWithSearch);
+    // console.log('\n📝 All posts with user details (search for "PostgreSQL"):');
+    // const postsWithSearch = await getAllPosts(1, 10, 'created_at', 'DESC', '', 'PostgreSQL');
+    // console.table(postsWithSearch);
 
-    console.log('\n📝 Posts by user John Doe (assuming id = 1):');
-    const johnPosts = await getPostsByUserId(1);
-    console.table(johnPosts);
+    // console.log('\n📝 Posts by user John Doe (assuming id = 1):');
+    // const johnPosts = await getPostsByUserId(1);
+    // console.table(johnPosts);
 
     console.log('\n📄 Paginated posts – page 1, limit 2:');
     const paginatedPosts = await getAllPosts(1, 2, 'created_at', 'DESC');
@@ -86,10 +86,10 @@ async function fetchAndDisplayUsers() {
 
 async function startServer() {
     try {
-        await initializeDatabase();
+        // await initializeDatabase();
         // await createMultipleUsers();
-        await fetchAndDisplayUsers();
-        await createPostsForUsers(await getAllUsers(1, 10)); // Create posts for the first 10 users
+        // await fetchAndDisplayUsers();
+        // await createPostsForUsers(await getAllUsers(1, 10)); // Create posts for the first 10 users
         await fetchAndDisplayData();
         console.log('\n🚀 Server is running and ready to accept requests');
     } catch (error) {
